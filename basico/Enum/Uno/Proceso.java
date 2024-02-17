@@ -1,42 +1,37 @@
 package org.ejercicios.basico.Enum.Uno;
 
 public class Proceso {
-    private String dia;
-    public Proceso(String dia) {
-        this.dia = dia;
+    private DiasSemana diaa;
+    public Proceso(DiasSemana dia) {
+        this.diaa = dia;
     }
+
     public void diaSig()
     {
-        if (dia == "Lunes"){
-            System.out.println("Es Martes");
-        }
-        else if (dia == "Martes")
-        {
-            System.out.println("Es Miercoles");
-        }
-        else if (dia == "Miercoles")
-        {
-            System.out.println("Es Jueves");
-        }
-        else if (dia == "Jueves")
-        {
-            System.out.println("Es Viernes");
-        }
-        else if (dia == "Viernes")
-        {
-            System.out.println("Es Sabado");
-        }
-        else if (dia == "Sabado")
-        {
-            System.out.println("Es Domingo");
-        }
-        else if (dia == "Domingo")
-        {
-            System.out.println("Es Lunes");
-        }
-        else
-        {
-            System.out.println("\033[35m -- Error --");
+        switch (diaa){
+            case LUNES:
+                System.out.println(DiasSemana.MARTES);
+                break;
+            case MARTES:
+                System.out.println(DiasSemana.MIERCOLES);
+                break;
+            case MIERCOLES:
+                System.out.println(DiasSemana.JUEVES);
+                break;
+            case JUEVES:
+                System.out.println(DiasSemana.VIERNES);
+                break;
+            case VIERNES:
+                System.out.println(DiasSemana.SABADO);
+                break;
+            case SABADO:
+                System.out.println(DiasSemana.DOMINGO);
+                break;
+            case DOMINGO:
+                System.out.println(DiasSemana.LUNES);
+                break;
+            default:
+                throw new IllegalStateException("Valor desconocido: " + diaa);
         }
     }
 }
