@@ -1,4 +1,4 @@
-package org.ejercicios.basico.Enum;
+package org.ejercicios.basico.Enum.Uno;
 
 public enum DiasSemana {
     LUNES("Lunes"),

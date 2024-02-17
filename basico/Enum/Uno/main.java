@@ -1,4 +1,4 @@
-package org.ejercicios.basico.Enum;
+package org.ejercicios.basico.Enum.Uno;
 
 public class main {
     public static void main(String[] args) {
