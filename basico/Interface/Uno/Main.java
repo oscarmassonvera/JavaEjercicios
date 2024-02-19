@@ -16,7 +16,7 @@ public class Main {
           con 2 libros y 2 revistas, prestar uno de los libros,
           mostrar por pantalla los datos almacenados en el
           array y mostrar por pantalla cuántas hay
-          prestadas y cuantas hay anteriores a 1990.*/
+          prestadas y cuantas hay posteriores a 1990.*/
 
         String[][] objetos = new String[2][4];
         objetos[0][0] = "Revista de cocina";
@@ -39,7 +39,7 @@ public class Main {
 
         Proceso ver = new Proceso();
         System.out.println("La cantidad de objetos prestados son: \t   "+ver.cuentaPrestados(objetos));
-        System.out.println("La cantidad de publicaciones anteriores a 1990 son: \t   "+ver.publicacionesAnterioresA(objetos));
+        System.out.println("La cantidad de publicaciones posteriores a 1990 son: \t   "+ver.publicacionesAnterioresA(objetos));
 
     }
 }
