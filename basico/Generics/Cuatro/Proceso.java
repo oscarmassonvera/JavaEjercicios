@@ -11,10 +11,10 @@ public class Proceso {
                 return t;
         return null;
     }
-    public static <T> List<String> parejaDeDatos(T t) {
+    public static <T> List<T> parejaDeDatos(T t) {
         List<T> resultado = new ArrayList<T>();
         resultado.add(t);
         resultado.add(t);
-        return (List<String>) resultado;
+        return resultado;
     }
 }
