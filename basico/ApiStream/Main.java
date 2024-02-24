@@ -1,10 +1,8 @@
 package org.ejercicios.basico.ApiStream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -98,6 +96,22 @@ public class Main {
         //
         System.out.println(" ");
         //
-        
+        IntStream num = IntStream.range(1,11);
+        IntSummaryStatistics stats = num.summaryStatistics();
+        System.out.println("stats.getMax() = \t" + stats.getMax());
+        System.out.println("stats.getMin() = \t" + stats.getMin());
+        System.out.println("stats.getCount() = \t" + stats.getCount());
+        System.out.println("stats.getSum() = \t" + stats.getSum());
+        System.out.println("stats.getClass() = \t" + stats.getClass());
+        System.out.println("stats.getAverage() = \t" + stats.getAverage());
+        //
+        System.out.println(" ");
+        //
+        IntStream largoNombres = Stream
+                .of("Pepe Pepin","Pepe Arevalo","Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
+                .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
+                .distinct()
+                .mapToInt( u -> u.toString().length());
+        largoNombres.forEach(System.out::println);
     }
 }
