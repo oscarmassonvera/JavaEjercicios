@@ -61,40 +61,43 @@ public class Main {
         //
         System.out.println("");
         //
-        Stream<Usuario> nombre8 = Stream
-                .of("Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
-                .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
-                .map(usuario -> {
-                    String nombre = usuario.getNombre().toUpperCase();
-                    String apellido = usuario.getApellido().toUpperCase();
-                    usuario.setNombre(nombre);
-                    usuario.setApellido(apellido);
-                    return usuario;
-                });
-        List<Usuario> list4 = nombre8.collect(Collectors.toList());
-        list4.forEach(u -> System.out.print(u.getNombre()+""+u.getApellido()));
-        //
-        System.out.println("");
-        //
-        Stream<Usuario> nombre9 = Stream
-                .of("Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
-                .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
-                .filter( u -> u.getNombre().equals("Pepe"));
-        List<Usuario> list5 = nombre9.collect(Collectors.toList());
-        list5.forEach(u -> System.out.print(u.getNombre()+""+u.getApellido()));
-        //
-        System.out.println("");
-        //
-        Stream<Usuario> nombre10 = Stream
+        boolean existe = Stream
                 .of("Pepe Pepin","Pepe Arevalo","Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
                 .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
-                .filter( u -> u.getNombre().equals("Pepe"));
-        Optional<Usuario> usuraio = nombre10.findFirst();
-        System.out.println(usuraio.get().getNombre()+"\t"+
-                usuraio.get().getApellido());
+                .anyMatch(u->u.getApellido().equals("Gomez")); // Retorna boolean
+        System.out.println(existe);
         //
-        System.out.println("");
+        System.out.println(" ");
         //
-
+             Optional<Usuario> existe2 = Stream
+                .of("Pepe Pepin","Pepe Arevalo","Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
+                .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
+                .filter( u -> u.getNombre().equals("Pepe") && u.getApellido().equals("Arevalo") ).findAny();
+             if (existe2.isPresent()){
+                 System.out.println("Usuario = " + existe2);
+             }else{
+                 System.out.println("Usuario no existe.");
+             }
+        //
+        System.out.println(" ");
+        //
+        Long cantidad = Stream
+                .of("Pepe Pepin","Pepe Arevalo","Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena")
+                .map( a-> new Usuario(a.split(" ")[0],a.split(" ")[1]))
+                .filter( u -> u.getNombre().equals("Pepe"))
+                .count();
+        System.out.println("cantidad = " + cantidad);
+        //
+        System.out.println(" ");
+        //
+                Stream<String> xd = Stream
+                .of("Pepe Pepin","Pepe Arevalo","Pato Gomez", "Paco Guitierrez","Pepa Mendez","Pepe Mena","Pepe Mena")
+                .distinct();
+                String reduce =  xd.reduce("",(a,b) -> a+ ", " + b );
+                System.out.println("reduce = " + reduce);
+        //
+        System.out.println(" ");
+        //
+        
     }
 }
